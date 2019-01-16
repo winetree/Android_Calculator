@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">Calculator</string>
+    <string name="app_name">android06</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Calculator</string>
+    <string name="nav_header_subtitle">winetree@jongdali.com</string>
+    <string name="nav_header_desc">안드로이드 계산기</string>
+    <string name="action_settings">설정</string>
 </resources>
