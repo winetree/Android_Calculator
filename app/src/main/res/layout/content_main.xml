@@ -6,9 +6,8 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".standard.StandardActivity"
-    tools:showIn="@layout/app_bar_main"
+    tools:showIn="@layout/common_toolbar"
     android:id="@+id/content_main">
-
     <!--<TextView-->
         <!--android:id="@+id/result"-->
         <!--android:layout_width="314dp"-->

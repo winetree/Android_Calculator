@@ -219,8 +219,6 @@ public class StandardFragment extends Fragment implements StandardContract.View 
                 standardPresenter.division1();
             }
         });
-
-
         return view;
     }
 
