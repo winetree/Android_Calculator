@@ -19,6 +19,8 @@ import android.view.ViewGroup;
 import android.support.v7.widget.Toolbar;
 
 import com.winetree.jdlab.calculator.R;
+import com.winetree.jdlab.calculator.data.DataActivity;
+import com.winetree.jdlab.calculator.standard.StandardActivity;
 
 public class ToolbarFragment extends Fragment implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -71,23 +73,16 @@ public class ToolbarFragment extends Fragment implements NavigationView.OnNaviga
 
         FragmentManager manager = activity.getSupportFragmentManager();
 
-        if (id == R.id.standard) {
-            //nothing
-        } else if (id == R.id.nav_gallery) {
-//            Intent intent = new Intent(StandardActivity.this, DataActivity.class);
-//            startActivity(intent);
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.nav_standard) {
+            Intent intent = new Intent(activity, StandardActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_date) {
+            Intent intent = new Intent(activity, DataActivity.class);
+            startActivity(intent);
         }
 
-        DrawerLayout drawer = (DrawerLayout) activity.findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+//        DrawerLayout drawer = (DrawerLayout) activity.findViewById(R.id.drawer_layout);
+//        drawer.closeDrawer(GravityCompat.START);
 
         return true;
     }

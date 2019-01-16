@@ -161,7 +161,9 @@ public class StandardPresenter implements StandardContract.Presenter {
 	
 	@Override
 	public void calculate() {
-		calculator();
+		if(operatorInput != null && operatorInput.length() > 0) {
+			calculator();
+		}
 	}
 	
 	@Override

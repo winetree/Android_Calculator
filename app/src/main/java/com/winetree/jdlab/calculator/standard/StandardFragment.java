@@ -36,7 +36,7 @@ public class StandardFragment extends Fragment implements StandardContract.View 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.standard, container, false);
+        View view = inflater.inflate(R.layout.standard_fragment, container, false);
 
         setPresenter(new StandardPresenter(view, this));
 

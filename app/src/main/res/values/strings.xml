@@ -2,8 +2,14 @@
     <string name="app_name">계산기</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Calculator</string>
+    <string name="nav_header_title">안드로이드 계산기</string>
     <string name="nav_header_subtitle">winetree@jongdali.com</string>
     <string name="nav_header_desc">안드로이드 계산기</string>
     <string name="action_settings">설정</string>
+
+    <string name="nav_standard">일반 계산기</string>
+    <string name="nav_date">날짜 계산기</string>
+    <string name="nav_contact_title">개발자에게 연락하기</string>
+    <string name="nav_contact_share">공유하기</string>
+    <string name="nav_contact_mail">이메일 보내기</string>
 </resources>
