@@ -1,5 +1,7 @@
 package com.winetree.jdlab.calculator;
 
+import com.winetree.jdlab.calculator.config.MainConfig;
+
 import java.math.BigDecimal;
 
 public class MainModel {
