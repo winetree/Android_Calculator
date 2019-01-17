@@ -12,4 +12,69 @@
     <string name="nav_contact_title">개발자에게 연락하기</string>
     <string name="nav_contact_share">공유하기</string>
     <string name="nav_contact_mail">이메일 보내기</string>
+
+    <string name="calculator_plus_minus">±</string>
+    <string name="calculator_parenthese_open">(</string>
+    <string name="calculator_parenthese_close">)</string>
+    <string name="calculator_equal">=</string>
+    <string name="calculator_plus">+</string>
+    <string name="calculator_minus">-</string>
+    <string name="calculator_multiplication">×</string>
+    <string name="calculator_shift">↑</string>
+    <string name="calculator_mod">Mod</string>
+    <string name="calculator_clear_entry">CE</string>
+    <string name="calculator_clear">C</string>
+    <string name="calculator_backspace">←</string>
+    <string name="calculator_division">÷</string>
+    <string name="calculator_lsh">Lsh</string>
+    <string name="calculator_rsh">Rsh</string>
+    <string name="calculator_rol">RoL</string>
+    <string name="calculator_ror">RoR</string>
+    <string name="calculator_or">Or</string>
+    <string name="calculator_xor">Xor</string>
+    <string name="calculator_not">Not</string>
+    <string name="calculator_and">And</string>
+    <string name="calculator_decimal">10</string>
+    <string name="calculator_binary">2</string>
+    <string name="calculator_word">WORD</string>
+    <string name="calculator_byte">BYTE</string>
+    <string name="calculator_qword">QWORD</string>
+    <string name="calculator_dword">DWORD</string>
+    <string name="calculator_ms">MS</string>
+    <string name="calculator_mdown">M↓</string>
+    <string name="calculator_hex">HEX</string>
+    <string name="calculator_dec">DEC</string>
+    <string name="calculator_oct">OCT</string>
+    <string name="calculator_bin">BIN</string>
+    <string name="calculator_a">A</string>
+    <string name="calculator_b">B</string>
+    <string name="calculator_c">C</string>
+    <string name="calculator_d">D</string>
+    <string name="calculator_e">E</string>
+    <string name="calculator_f">F</string>
+    <string name="calculator_0">0</string>
+    <string name="calculator_1">1</string>
+    <string name="calculator_2">2</string>
+    <string name="calculator_3">3</string>
+    <string name="calculator_4">4</string>
+    <string name="calculator_5">5</string>
+    <string name="calculator_6">6</string>
+    <string name="calculator_7">7</string>
+    <string name="calculator_8">8</string>
+    <string name="calculator_9">9</string>
+    <string name="calculator_decimal_point">.</string>
+    <string name="nav_programmer">프로그래밍 계산기</string>
+
+    <string-array name="data_spinner">
+        <item>Bits</item>
+        <item>Bytes</item>
+        <item>Kilobits</item>
+        <item>Kibibits</item>
+        <item>Kilobytes</item>
+        <item>Kibibytes</item>
+        <item>Megabits</item>
+        <item>Mebibits</item>
+        <item>Megabits</item>
+        <item>Megabytes</item>
+    </string-array>
 </resources>

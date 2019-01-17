@@ -7,12 +7,10 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,9 +22,7 @@ import com.winetree.jdlab.calculator.standard.StandardActivity;
 
 public class ToolbarFragment extends Fragment implements NavigationView.OnNavigationItemSelectedListener{
 
-
     private AppCompatActivity activity;
-
     public static ToolbarFragment newInstance(){return new ToolbarFragment();}
 
     @Nullable
@@ -39,11 +35,13 @@ public class ToolbarFragment extends Fragment implements NavigationView.OnNaviga
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
         activity.setSupportActionBar(toolbar);
 
+        // DrawLayout Initialize
         DrawerLayout drawer = (DrawerLayout)view.findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(activity, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        // NavigationView Initialize
         NavigationView navigationView = (NavigationView) view.findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -80,10 +78,6 @@ public class ToolbarFragment extends Fragment implements NavigationView.OnNaviga
             Intent intent = new Intent(activity, DataActivity.class);
             startActivity(intent);
         }
-
-//        DrawerLayout drawer = (DrawerLayout) activity.findViewById(R.id.drawer_layout);
-//        drawer.closeDrawer(GravityCompat.START);
-
         return true;
     }
 }

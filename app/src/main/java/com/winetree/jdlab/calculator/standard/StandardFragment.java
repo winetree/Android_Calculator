@@ -19,7 +19,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 public class StandardFragment extends Fragment implements StandardContract.View {
 
-    public static StandardFragment newInstance(){return new StandardFragment();}
+    public static StandardFragment newInstance(){
+        return new StandardFragment();
+    }
 
     private StandardContract.Presenter standardPresenter;
 

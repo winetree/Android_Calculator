@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:launchMode="singleTop" android:theme="@style/AppTheme.NoActionBar" android:name=".data.DataActivity" ></activity>
+        <activity android:launchMode="singleTop" android:theme="@style/AppTheme.NoActionBar" android:name=".programmer.ProgrammerActivity" ></activity>
     </application>
 
 </manifest>
