@@ -35,7 +35,7 @@
         android:textStyle="bold" />
 
     <android.support.v7.widget.LinearLayoutCompat
-        android:id="@+id/programmer_11"
+        android:id="@+id/calculator_hex"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="6"
@@ -43,7 +43,7 @@
         android:weightSum="6">
 
         <TextView
-            android:id="@+id/calculator_hex"
+            android:id="@+id/calculator_hex_label"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -53,7 +53,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/calculator_hex_display"
+            android:id="@+id/calculator_hex_value"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="5"
@@ -64,7 +64,7 @@
     </android.support.v7.widget.LinearLayoutCompat>
 
     <android.support.v7.widget.LinearLayoutCompat
-        android:id="@+id/programmer_10"
+        android:id="@+id/calculator_dec"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="6"
@@ -72,7 +72,7 @@
         android:weightSum="6">
 
         <TextView
-            android:id="@+id/calculator_dec"
+            android:id="@+id/calculator_dec_label"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -82,7 +82,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/calculator_dec_display"
+            android:id="@+id/calculator_dec_value"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="5"
@@ -93,7 +93,7 @@
     </android.support.v7.widget.LinearLayoutCompat>
 
     <android.support.v7.widget.LinearLayoutCompat
-        android:id="@+id/programmer_9"
+        android:id="@+id/calculator_oct"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="6"
@@ -101,7 +101,7 @@
         android:weightSum="6">
 
         <TextView
-            android:id="@+id/calculator_oct"
+            android:id="@+id/calculator_oct_label"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -111,7 +111,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/calculator_oct_display"
+            android:id="@+id/calculator_oct_value"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="5"
@@ -122,7 +122,7 @@
     </android.support.v7.widget.LinearLayoutCompat>
 
     <android.support.v7.widget.LinearLayoutCompat
-        android:id="@+id/programmer_8"
+        android:id="@+id/calculator_bin"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="6"
@@ -130,7 +130,7 @@
         android:weightSum="6">
 
         <TextView
-            android:id="@+id/calculator_bin"
+            android:id="@+id/calculator_bin_label"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -140,7 +140,7 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/calculator_bin_display"
+            android:id="@+id/calculator_bin_value"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="5"
@@ -569,8 +569,10 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:clickable="false"
             android:text="@string/calculator_decimal_point"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            tools:clickable="false" />
 
         <Button
             android:id="@+id/calculator_equal"
