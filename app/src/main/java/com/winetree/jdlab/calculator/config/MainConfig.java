@@ -18,6 +18,8 @@ public class MainConfig {
    */
   private int MAX_DECIMAL_POINT = 20;
 
+
+
   /**
    * hex : Hexdecimal 16
    * dec : Decimal 10 (Default)
