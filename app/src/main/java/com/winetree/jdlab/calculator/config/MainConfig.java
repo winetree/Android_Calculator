@@ -26,7 +26,7 @@ public class MainConfig {
    * oct : Octal 8
    * bin : Binary 2
    */
-  private String PROGRAMMER_CALCULATOR_MOD = "dec";
+  private String PROGRAMMER_CALCULATOR_INPUT_MOD = "dec";
 
   /**
    * byte : BYTE
@@ -34,22 +34,22 @@ public class MainConfig {
    * dword : DWORD
    * qword : QWORD (Default)
    */
-  private String PROGRAMMER_CALCULATOR_TYPE = "word";
+  private String PROGRAMMER_CALCULATOR_BIT_TYPE = "word";
 
 
   public String getProgrammerCalculatorMod() {
-    return this.PROGRAMMER_CALCULATOR_MOD;
+    return this.PROGRAMMER_CALCULATOR_INPUT_MOD;
   }
 
   public void setProgrammerCalculatorMod(String programmerCalculatorMod) {
-    this.PROGRAMMER_CALCULATOR_MOD = programmerCalculatorMod;
+    this.PROGRAMMER_CALCULATOR_INPUT_MOD = programmerCalculatorMod;
   }
 
-  public String getPROGRAMMER_CALCULATOR_TYPE() {
-    return PROGRAMMER_CALCULATOR_TYPE;
+  public String getPROGRAMMER_CALCULATOR_BIT_TYPE() {
+    return PROGRAMMER_CALCULATOR_BIT_TYPE;
   }
 
-  public void setPROGRAMMER_CALCULATOR_TYPE(String PROGRAMMER_CALCULATOR_TYPE) {
-    this.PROGRAMMER_CALCULATOR_TYPE = PROGRAMMER_CALCULATOR_TYPE;
+  public void setPROGRAMMER_CALCULATOR_BIT_TYPE(String PROGRAMMER_CALCULATOR_BIT_TYPE) {
+    this.PROGRAMMER_CALCULATOR_BIT_TYPE = PROGRAMMER_CALCULATOR_BIT_TYPE;
   }
 }

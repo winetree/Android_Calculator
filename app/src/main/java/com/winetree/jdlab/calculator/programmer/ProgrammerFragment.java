@@ -84,11 +84,24 @@ public class ProgrammerFragment extends Fragment implements ProgrammerContract.V
 		Button pad_decimal = view.findViewById(R.id.calculator_decimal);
 		Button pad_plus_minus = view.findViewById(R.id.calculator_plus_minus);
 		Button pad_equal = view.findViewById(R.id.calculator_equal);
-		Button pad_plus = view.findViewById(R.id.calculator_plus);
-		Button pad_minus = view.findViewById(R.id.calculator_minus);
-		Button pad_multiplicaion = view.findViewById(R.id.calculator_multiplication);
-		Button pad_division = view.findViewById(R.id.calculator_division);
 
+		/**
+		 * operator
+		 */
+		List<Button> operators = new ArrayList<>();
+
+		operators.add(view.findViewById(R.id.calculator_plus));
+		operators.add(view.findViewById(R.id.calculator_minus));
+		operators.add(view.findViewById(R.id.calculator_multiplication));
+		operators.add(view.findViewById(R.id.calculator_division));
+
+		for(Button operator : operators) {
+			operator.setOnClickListener((View v) -> presenter.operatorInitialize(v));
+		}
+
+		/**
+		 *
+		 */
 		binaryList.add((Button) view.findViewById(R.id.calculator_0));
 		binaryList.add((Button) view.findViewById(R.id.calculator_1));
 		binaryList.add((Button) view.findViewById(R.id.calculator_parenthese_open));
@@ -171,19 +184,19 @@ public class ProgrammerFragment extends Fragment implements ProgrammerContract.V
 
 			switch (type) {
 				case "BYTE" :
-					config.setPROGRAMMER_CALCULATOR_TYPE("word");
+					config.setPROGRAMMER_CALCULATOR_BIT_TYPE("word");
 					button.setText("WORD");
 					break;
 				case "WORD" :
-					config.setPROGRAMMER_CALCULATOR_TYPE("dword");
+					config.setPROGRAMMER_CALCULATOR_BIT_TYPE("dword");
 					button.setText("DWORD");
 					break;
 				case "DWORD" :
-					config.setPROGRAMMER_CALCULATOR_TYPE("qword");
+					config.setPROGRAMMER_CALCULATOR_BIT_TYPE("qword");
 					button.setText("QWORD");
 					break;
 				case "QWORD" :
-					config.setPROGRAMMER_CALCULATOR_TYPE("byte");
+					config.setPROGRAMMER_CALCULATOR_BIT_TYPE("byte");
 					button.setText("BYTE");
 					break;
 			}
@@ -300,10 +313,10 @@ public class ProgrammerFragment extends Fragment implements ProgrammerContract.V
 
 		String calculator_result_display = domain.getCalculator_result_display().toString();
 		String calculator_state_display = domain.getCalculator_state_display().toString();
-		String calculator_hex_display = domain.getCalculator_hex_display().toString();
-		String calculator_dec_display = domain.getCalculator_dec_display().toString();
-		String calculator_oct_display = domain.getCalculator_oct_display().toString();
-		String calculator_bin_display = domain.getCalculator_bin_display().toString();
+		String calculator_hex_display = domain.getCalculator_hex_display();
+		String calculator_dec_display = domain.getCalculator_dec_display();
+		String calculator_oct_display = domain.getCalculator_oct_display();
+		String calculator_bin_display = domain.getCalculator_bin_display();
 
 		if (!this.display_result.getText().equals(calculator_result_display)) {
 			this.display_result.setText(calculator_result_display);

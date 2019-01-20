@@ -3,14 +3,10 @@ package com.winetree.jdlab.calculator.programmer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.winetree.jdlab.calculator.R;
 import com.winetree.jdlab.calculator.config.MainConfig;
 import com.winetree.jdlab.calculator.domain.ProgrammerDomain;
-
-import java.math.BigInteger;
 
 public class ProgrammerPresenter implements ProgrammerContract.Presenter {
 
@@ -18,6 +14,9 @@ public class ProgrammerPresenter implements ProgrammerContract.Presenter {
 	private ProgrammerContract.View view;
 	private ProgrammerDomain domain;
 	private MainConfig config;
+
+	private String operator;
+	private String state_number;
 
 	@Override
 	public void setConfig(MainConfig config) {
@@ -128,6 +127,9 @@ public class ProgrammerPresenter implements ProgrammerContract.Presenter {
 
 	@Override
 	public void backSpace() {
+
+		int inputMode = getInputMode();
+
 		try {
 
 			StringBuffer result = domain.getCalculator_result_display();
@@ -139,9 +141,14 @@ public class ProgrammerPresenter implements ProgrammerContract.Presenter {
 				temp = "0";
 			}
 
+			if(temp.length() == 1 && temp.substring(0, 1).equals("0") && inputMode == 2) {
+				temp = "";
+			}
+
 			result.append(temp);
 
 			numberConverter();
+
 			view.UIUpdator(domain);
 
 		} catch (StringIndexOutOfBoundsException e) {
@@ -183,7 +190,7 @@ public class ProgrammerPresenter implements ProgrammerContract.Presenter {
 			 */
 			default:
 
-				int mode = getMode();
+				int mode = getInputMode();
 
 				if( mode > 2) {
 
@@ -212,6 +219,8 @@ public class ProgrammerPresenter implements ProgrammerContract.Presenter {
 
 	@Override
 	public void validChecker() {
+
+		try {
 		StringBuffer result = domain.getCalculator_result_display();
 
 		String temp = result.toString();
@@ -225,12 +234,15 @@ public class ProgrammerPresenter implements ProgrammerContract.Presenter {
 
 		numberConverter();
 		view.UIUpdator(domain);
+		} catch (StringIndexOutOfBoundsException e) {
+			e.printStackTrace();
+		}
 	}
 
 	private boolean isValid(String number) {
 
-		int mode = getMode();
-		int type = getType();
+		int mode = getInputMode();
+		int type = getBitType();
 
 			try {
 				switch (type) {
@@ -313,8 +325,8 @@ public class ProgrammerPresenter implements ProgrammerContract.Presenter {
 		view.UIUpdator(domain);
 	}
 
-	private int getType(){
-		String type = config.getPROGRAMMER_CALCULATOR_TYPE();
+	private int getBitType(){
+		String type = config.getPROGRAMMER_CALCULATOR_BIT_TYPE();
 		int result = 10;
 		switch (type) {
 			case "byte" : result = 8; break;
@@ -325,7 +337,7 @@ public class ProgrammerPresenter implements ProgrammerContract.Presenter {
 		return result;
 	}
 
-	private int getMode(){
+	private int getInputMode(){
 		String mode = config.getProgrammerCalculatorMod();
 		switch (mode) {
 			case "bin" : return 2;
@@ -343,84 +355,89 @@ public class ProgrammerPresenter implements ProgrammerContract.Presenter {
 
 
 	private void numberConverter(boolean isc) {
-		int mode = getMode(); // 2, 8, 10, 16
-		int bit = getType(); // 8bit 16bit 32bit 64bit
 
-		String result = domain.getCalculator_result_display().toString();
+		try {
+			int mode = getInputMode(); // 2, 8, 10, 16
+			int bit = getBitType(); // 8bit 16bit 32bit 64bit
 
-		String hex = "";
-		String bin = "";
-		String oct = "";
+			String result = domain.getCalculator_result_display().toString();
 
-		switch (bit) {
-			case 64 :
+			String hex = "";
+			String bin = "";
+			String oct = "";
 
-				Long dec_64 = Long.parseLong(result, mode);
+			switch (bit) {
+				case 64:
 
-				if(isc) {
-					dec_64 = dec_64 * -1;
-				}
+					Long dec_64 = Long.parseLong(result, mode);
 
-				hex = Long.toHexString(dec_64);
-				bin = Long.toBinaryString(dec_64);
-				oct = Long.toOctalString(dec_64);
+					if (isc) {
+						dec_64 = dec_64 * -1;
+					}
 
-				domain.setCalculator_dec_display(dec_64.toString());
+					hex = Long.toHexString(dec_64);
+					bin = Long.toBinaryString(dec_64);
+					oct = Long.toOctalString(dec_64);
 
-				break;
+					domain.setCalculator_dec_display(dec_64.toString());
 
-			case 32 :
+					break;
 
-				Integer dec_32 = Integer.parseInt(result, mode);
+				case 32:
 
-				if(isc) {
-					dec_32 = dec_32 * -1;
-				}
+					Integer dec_32 = Integer.parseInt(result, mode);
 
-				hex = Integer.toHexString(dec_32);
-				bin = Integer.toBinaryString(dec_32);
-				oct = Integer.toOctalString(dec_32);
+					if (isc) {
+						dec_32 = dec_32 * -1;
+					}
 
-				domain.setCalculator_dec_display(dec_32.toString());
+					hex = Integer.toHexString(dec_32);
+					bin = Integer.toBinaryString(dec_32);
+					oct = Integer.toOctalString(dec_32);
 
-				break;
+					domain.setCalculator_dec_display(dec_32.toString());
 
-			case 16 :
+					break;
 
-				Integer dec_16 = Integer.parseInt(result, mode);
+				case 16:
 
-				if(isc) {
-					dec_16 = dec_16 * -1;
-				}
+					Integer dec_16 = Integer.parseInt(result, mode);
 
-				hex = Integer.toHexString(dec_16 & 0xffff);
-				bin = Integer.toBinaryString(dec_16 & 0xffff);
-				oct = Integer.toOctalString(dec_16 & 0xffff);
+					if (isc) {
+						dec_16 = dec_16 * -1;
+					}
 
-				domain.setCalculator_dec_display(dec_16.toString());
+					hex = Integer.toHexString(dec_16 & 0xffff);
+					bin = Integer.toBinaryString(dec_16 & 0xffff);
+					oct = Integer.toOctalString(dec_16 & 0xffff);
 
-				break;
+					domain.setCalculator_dec_display(dec_16.toString());
 
-			case 8 :
+					break;
 
-				Integer dec_8 = Integer.parseInt(result, mode);
+				case 8:
 
-				if(isc) {
-					dec_8 = dec_8 * -1;
-				}
+					Integer dec_8 = Integer.parseInt(result, mode);
 
-				hex = Integer.toHexString(dec_8 & 0xff);
-				bin = Integer.toBinaryString(dec_8 & 0xff);
-				oct = Integer.toOctalString(dec_8 & 0xff);
+					if (isc) {
+						dec_8 = dec_8 * -1;
+					}
 
-				domain.setCalculator_dec_display(dec_8.toString());
+					hex = Integer.toHexString(dec_8 & 0xff);
+					bin = Integer.toBinaryString(dec_8 & 0xff);
+					oct = Integer.toOctalString(dec_8 & 0xff);
 
-				break;
+					domain.setCalculator_dec_display(dec_8.toString());
+
+					break;
+			}
+
+			domain.setCalculator_hex_display(hex);
+			domain.setCalculator_bin_display(bin);
+			domain.setCalculator_oct_display(oct);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-
-		domain.setCalculator_hex_display(hex);
-		domain.setCalculator_bin_display(bin);
-		domain.setCalculator_oct_display(oct);
 	}
 
 
@@ -440,11 +457,15 @@ public class ProgrammerPresenter implements ProgrammerContract.Presenter {
 		view.UIUpdator(domain);
 	}
 
+	/**
+	 * 양수, 정수 Conversion
+	 * @param v
+	 */
 	@Override
 	public void plusMinusChacner(View v) {
 
-		int mode = getMode();
-		int type = getType();
+		int mode = getInputMode();
+		int type = getBitType();
 
 		config.setProgrammerCalculatorMod("dec");
 
@@ -483,6 +504,54 @@ public class ProgrammerPresenter implements ProgrammerContract.Presenter {
 		domain.setCalculator_result_display(result);
 
 		view.UIUpdator(domain);
+
+	}
+
+	@Override
+	public void operatorInitialize(View v){
+		operatorReset();
+
+		Button operatorButton = (Button)v;
+		int id = operatorButton.getId();
+
+		System.out.println(id);
+
+		switch (id) {
+			case R.id.calculator_plus:
+				this.operator = "+";
+				break;
+			case R.id.calculator_minus:
+				this.operator = "-";
+				break;
+			case R.id.calculator_multiplication:
+				this.operator = "*";
+				break;
+			case R.id.calculator_division:
+				this.operator = "/";
+				break;
+		}
+
+		this.state_number = domain.getCalculator_result_display().toString();
+
+		StringBuffer state = new StringBuffer(this.state_number + "  " + this.operator);
+
+		domain.setCalculator_state_display(state);
+
+
+		StringBuffer result = domain.getCalculator_result_display();
+
+		result.setLength(0);
+		result.append(0);
+
+		domain.setCalculator_result_display(result);
+
+		view.UIUpdator(domain);
+	}
+
+	public void operatorReset() {
+
+		this.operator = "";
+		this.state_number = "";
 
 	}
 

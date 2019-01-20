@@ -39,6 +39,8 @@ public interface ProgrammerContract {
         void clear();
 
         void plusMinusChacner(android.view.View v);
+
+	    void operatorInitialize(android.view.View v);
     }
 
 }
